@@ -43,7 +43,7 @@ namespace ComputerShutDown
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnCancel.BackColor = System.Drawing.Color.IndianRed;
             this.btnCancel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnCancel.Location = new System.Drawing.Point(360, 526);
+            this.btnCancel.Location = new System.Drawing.Point(360, 517);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(278, 44);
             this.btnCancel.TabIndex = 2;
@@ -55,7 +55,7 @@ namespace ComputerShutDown
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(421, 222);
+            this.label2.Location = new System.Drawing.Point(421, 213);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(68, 73);
             this.label2.TabIndex = 4;
@@ -66,7 +66,7 @@ namespace ComputerShutDown
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(599, 222);
+            this.label3.Location = new System.Drawing.Point(599, 213);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(85, 73);
             this.label3.TabIndex = 5;
@@ -76,7 +76,7 @@ namespace ComputerShutDown
             // boxHours
             // 
             this.boxHours.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.boxHours.Location = new System.Drawing.Point(315, 215);
+            this.boxHours.Location = new System.Drawing.Point(315, 206);
             this.boxHours.MaxLength = 2;
             this.boxHours.Name = "boxHours";
             this.boxHours.Size = new System.Drawing.Size(100, 80);
@@ -90,7 +90,7 @@ namespace ComputerShutDown
             this.btnShutdown.BackColor = System.Drawing.Color.SeaGreen;
             this.btnShutdown.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnShutdown.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnShutdown.Location = new System.Drawing.Point(360, 434);
+            this.btnShutdown.Location = new System.Drawing.Point(360, 425);
             this.btnShutdown.Name = "btnShutdown";
             this.btnShutdown.Size = new System.Drawing.Size(278, 86);
             this.btnShutdown.TabIndex = 7;
@@ -102,18 +102,19 @@ namespace ComputerShutDown
             // 
             this.lblHeader.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblHeader.Font = new System.Drawing.Font("Consolas", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHeader.Location = new System.Drawing.Point(133, 86);
+            this.lblHeader.Font = new System.Drawing.Font("Yu Gothic", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHeader.Location = new System.Drawing.Point(133, 77);
             this.lblHeader.Name = "lblHeader";
             this.lblHeader.Size = new System.Drawing.Size(777, 75);
             this.lblHeader.TabIndex = 8;
             this.lblHeader.Text = "Turn off computer in";
+            this.lblHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblHeader.Click += new System.EventHandler(this.lblHeader_Click_1);
             // 
             // boxMinutes
             // 
             this.boxMinutes.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.boxMinutes.Location = new System.Drawing.Point(493, 215);
+            this.boxMinutes.Location = new System.Drawing.Point(493, 206);
             this.boxMinutes.MaxLength = 2;
             this.boxMinutes.Name = "boxMinutes";
             this.boxMinutes.Size = new System.Drawing.Size(100, 80);
