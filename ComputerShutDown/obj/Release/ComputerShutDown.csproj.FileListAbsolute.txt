@@ -1,0 +1,10 @@
+C:\Development\CSharp\ComputerShutDown\ComputerShutDown\bin\Release\ComputerShutDown.exe.config
+C:\Development\CSharp\ComputerShutDown\ComputerShutDown\bin\Release\ComputerShutDown.exe
+C:\Development\CSharp\ComputerShutDown\ComputerShutDown\bin\Release\ComputerShutDown.pdb
+C:\Development\CSharp\ComputerShutDown\ComputerShutDown\obj\Release\ComputerShutDown.csproj.AssemblyReference.cache
+C:\Development\CSharp\ComputerShutDown\ComputerShutDown\obj\Release\ComputerShutDown.Form.resources
+C:\Development\CSharp\ComputerShutDown\ComputerShutDown\obj\Release\ComputerShutDown.Properties.Resources.resources
+C:\Development\CSharp\ComputerShutDown\ComputerShutDown\obj\Release\ComputerShutDown.csproj.GenerateResource.cache
+C:\Development\CSharp\ComputerShutDown\ComputerShutDown\obj\Release\ComputerShutDown.csproj.CoreCompileInputs.cache
+C:\Development\CSharp\ComputerShutDown\ComputerShutDown\obj\Release\ComputerShutDown.exe
+C:\Development\CSharp\ComputerShutDown\ComputerShutDown\obj\Release\ComputerShutDown.pdb

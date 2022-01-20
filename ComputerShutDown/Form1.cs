@@ -16,7 +16,10 @@ namespace ComputerShutDown
         private void button1_Click_1(object sender, EventArgs e)
         {
             int seconds = CalculateSeconds();
-            RunShutdownCommand("-s -t " + (seconds).ToString());
+            if (seconds != -1)
+            {
+                RunShutdownCommand("-s -t " + (seconds).ToString());
+            }
         }
 
         private int CalculateSeconds()
@@ -38,6 +41,12 @@ namespace ComputerShutDown
             totalSeconds += (h * 3600);
             totalSeconds += (m * 60);
 
+            if (totalSeconds == 0)
+            {
+                ShowMessageMustEnterAnyNumber();
+                return -1;
+            }
+
             return totalSeconds;
         }
 
@@ -56,11 +65,6 @@ namespace ComputerShutDown
             pr.Start();
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             if (IsNotNumber(boxHours.Text))
@@ -68,11 +72,6 @@ namespace ComputerShutDown
                 ShowMessageNumbersOnly();
                 DeleteInvalidInput(boxHours);
             }
-        }
-
-        private void lblHeader_Click_1(object sender, EventArgs e)
-        {
-
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -89,6 +88,11 @@ namespace ComputerShutDown
             return System.Text.RegularExpressions.Regex.IsMatch(txt, "[^0-9]");
         }
 
+        void ShowMessageMustEnterAnyNumber()
+        {
+            MessageBox.Show("Please enter any value first.");
+        }
+
         void ShowMessageNumbersOnly()
         {
             MessageBox.Show("Please enter only numbers.");
@@ -97,11 +101,6 @@ namespace ComputerShutDown
         void DeleteInvalidInput(TextBox txtBox) 
         {
             txtBox.Text = txtBox.Text.Remove(0, txtBox.Text.Length);
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
