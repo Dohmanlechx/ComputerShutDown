@@ -2,9 +2,9 @@ C:\Development\CSharp\ComputerShutDown\ComputerShutDown\bin\Debug\ComputerShutDo
 C:\Development\CSharp\ComputerShutDown\ComputerShutDown\bin\Debug\ComputerShutDown.exe
 C:\Development\CSharp\ComputerShutDown\ComputerShutDown\bin\Debug\ComputerShutDown.pdb
 C:\Development\CSharp\ComputerShutDown\ComputerShutDown\obj\Debug\ComputerShutDown.csproj.AssemblyReference.cache
-C:\Development\CSharp\ComputerShutDown\ComputerShutDown\obj\Debug\ComputerShutDown.Form1.resources
 C:\Development\CSharp\ComputerShutDown\ComputerShutDown\obj\Debug\ComputerShutDown.Properties.Resources.resources
 C:\Development\CSharp\ComputerShutDown\ComputerShutDown\obj\Debug\ComputerShutDown.csproj.GenerateResource.cache
 C:\Development\CSharp\ComputerShutDown\ComputerShutDown\obj\Debug\ComputerShutDown.csproj.CoreCompileInputs.cache
 C:\Development\CSharp\ComputerShutDown\ComputerShutDown\obj\Debug\ComputerShutDown.exe
 C:\Development\CSharp\ComputerShutDown\ComputerShutDown\obj\Debug\ComputerShutDown.pdb
+C:\Development\CSharp\ComputerShutDown\ComputerShutDown\obj\Debug\ComputerShutDown.Form.resources
