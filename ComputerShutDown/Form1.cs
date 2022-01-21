@@ -38,8 +38,7 @@ namespace ComputerShutDown
                 m = int.Parse(boxMinutes.Text);
             }
 
-            totalSeconds += (h * 3600);
-            totalSeconds += (m * 60);
+            totalSeconds += (h * 3600) + (m * 60);
 
             if (totalSeconds == 0)
             {
