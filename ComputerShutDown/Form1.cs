@@ -50,6 +50,8 @@ namespace ComputerShutDown
                 RunShutdownCommand("-a");
                 dateTimeOfStartedTimer = DateTime.MinValue;
                 dateTimeOfShutDown = DateTime.MinValue;
+                progressBar1.Value = 0;
+                lblTimer.Visible = false;
                 isRunning = false;
             } 
             else
@@ -179,8 +181,6 @@ namespace ComputerShutDown
         {
             if (dateTimeOfStartedTimer == DateTime.MinValue || dateTimeOfShutDown == DateTime.MinValue)
             {
-                progressBar1.Value = 0;
-                lblTimer.Visible = false;
                 return;
             }
             double secondsFromStartToEnd = dateTimeOfShutDown.Subtract(dateTimeOfStartedTimer).TotalSeconds;
