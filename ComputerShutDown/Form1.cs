@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace ComputerShutDown
@@ -8,6 +9,7 @@ namespace ComputerShutDown
     {
         DateTime dateTimeOfStartedTimer;
         DateTime dateTimeOfShutDown;
+        bool isRunning = false;
 
         public Form()
         {
@@ -37,17 +39,45 @@ namespace ComputerShutDown
 
         private void menuItem_Click(object Sender, EventArgs e)
         {
+            RunShutdownCommand("-a");
             Application.Exit();
         }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            int seconds = CalculateSeconds();
-            if (seconds != -1)
+            if (isRunning)
             {
-                dateTimeOfStartedTimer = DateTime.Now;
-                dateTimeOfShutDown = dateTimeOfStartedTimer.AddSeconds(seconds);
-                RunShutdownCommand("-s -t " + (seconds).ToString());
+                RunShutdownCommand("-a");
+                dateTimeOfStartedTimer = DateTime.MinValue;
+                dateTimeOfShutDown = DateTime.MinValue;
+                isRunning = false;
+            } 
+            else
+            {
+                int seconds = CalculateSeconds();
+                if (seconds != -1)
+                {
+                    dateTimeOfStartedTimer = DateTime.Now;
+                    dateTimeOfShutDown = dateTimeOfStartedTimer.AddSeconds(seconds);
+                    RunShutdownCommand("-s -t " + (seconds).ToString());
+                    isRunning = true;
+                }
+            }
+
+            ToggleButtonUI();
+        }
+
+        private void ToggleButtonUI()
+        {
+            if (isRunning)
+            {
+                btnShutdown.Text = "Abort";
+                btnShutdown.BackColor = Color.Red;
+            }
+            else
+            {
+                btnShutdown.Text = "Apply";
+                btnShutdown.BackColor = Color.SeaGreen;
             }
         }
 
@@ -76,13 +106,6 @@ namespace ComputerShutDown
             }
 
             return totalSeconds;
-        }
-
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            RunShutdownCommand("-a");
-            dateTimeOfStartedTimer = DateTime.MinValue;
-            dateTimeOfShutDown = DateTime.MinValue;
         }
 
         private void RunShutdownCommand(String arguments)
@@ -157,6 +180,7 @@ namespace ComputerShutDown
             if (dateTimeOfStartedTimer == DateTime.MinValue || dateTimeOfShutDown == DateTime.MinValue)
             {
                 progressBar1.Value = 0;
+                lblTimer.Visible = false;
                 return;
             }
             double secondsFromStartToEnd = dateTimeOfShutDown.Subtract(dateTimeOfStartedTimer).TotalSeconds;
@@ -164,6 +188,9 @@ namespace ComputerShutDown
             double secondsFromNowToStart = now.Subtract(dateTimeOfStartedTimer).TotalSeconds;
             double progress = secondsFromNowToStart / secondsFromStartToEnd;
             progressBar1.Value = (int) (progress * 100);
+            int minutesLeft = (int) Math.Ceiling(((secondsFromStartToEnd - secondsFromNowToStart) / 60));
+            lblTimer.Text = minutesLeft.ToString() + " min left";
+            lblTimer.Visible = true;
         }
     }
 }
