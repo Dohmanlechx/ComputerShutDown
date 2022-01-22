@@ -6,10 +6,17 @@ namespace ComputerShutDown
 {
     public partial class Form : System.Windows.Forms.Form
     {
+        DateTime dateTimeOfStartedTimer;
+        DateTime dateTimeOfShutDown;
+
         public Form()
         {
             InitializeComponent();
             BuildMenu();
+
+            timer1.Interval = 1000;
+            timer1.Enabled = true;
+
             this.StartPosition = FormStartPosition.CenterScreen;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
         }
@@ -38,6 +45,8 @@ namespace ComputerShutDown
             int seconds = CalculateSeconds();
             if (seconds != -1)
             {
+                dateTimeOfStartedTimer = DateTime.Now;
+                dateTimeOfShutDown = dateTimeOfStartedTimer.AddSeconds(seconds);
                 RunShutdownCommand("-s -t " + (seconds).ToString());
             }
         }
@@ -72,6 +81,8 @@ namespace ComputerShutDown
         private void btnCancel_Click(object sender, EventArgs e)
         {
             RunShutdownCommand("-a");
+            dateTimeOfStartedTimer = DateTime.MinValue;
+            dateTimeOfShutDown = DateTime.MinValue;
         }
 
         private void RunShutdownCommand(String arguments)
@@ -139,6 +150,20 @@ namespace ComputerShutDown
         {
             this.WindowState = FormWindowState.Normal;
             Show();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (dateTimeOfStartedTimer == DateTime.MinValue || dateTimeOfShutDown == DateTime.MinValue)
+            {
+                progressBar1.Value = 0;
+                return;
+            }
+            double secondsFromStartToEnd = dateTimeOfShutDown.Subtract(dateTimeOfStartedTimer).TotalSeconds;
+            DateTime now = DateTime.Now;
+            double secondsFromNowToStart = now.Subtract(dateTimeOfStartedTimer).TotalSeconds;
+            double progress = secondsFromNowToStart / secondsFromStartToEnd;
+            progressBar1.Value = (int) (progress * 100);
         }
     }
 }
