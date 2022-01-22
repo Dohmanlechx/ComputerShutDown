@@ -7,3 +7,4 @@ C:\Development\CSharp\ComputerShutDown\ComputerShutDown\obj\Debug\ComputerShutDo
 C:\Development\CSharp\ComputerShutDown\ComputerShutDown\obj\Debug\ComputerShutDown.csproj.CoreCompileInputs.cache
 C:\Development\CSharp\ComputerShutDown\ComputerShutDown\obj\Debug\ComputerShutDown.exe
 C:\Development\CSharp\ComputerShutDown\ComputerShutDown\obj\Debug\ComputerShutDown.pdb
+C:\Development\CSharp\ComputerShutDown\ComputerShutDown\obj\Debug\ComputerShutDown.csproj.AssemblyReference.cache

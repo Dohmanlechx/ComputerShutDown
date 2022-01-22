@@ -9,8 +9,28 @@ namespace ComputerShutDown
         public Form()
         {
             InitializeComponent();
+            BuildMenu();
             this.StartPosition = FormStartPosition.CenterScreen;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
+        }
+
+        private void BuildMenu()
+        {
+            MenuItem menuItem = new MenuItem();
+            menuItem.Index = 0;
+            menuItem.Text = "Exit";
+            menuItem.Click += new EventHandler(menuItem_Click);
+
+            ContextMenu contextMenu;
+            contextMenu = new ContextMenu();
+
+            contextMenu.MenuItems.AddRange(new MenuItem[] { menuItem });
+            notifyIcon.ContextMenu = contextMenu;
+        }
+
+        private void menuItem_Click(object Sender, EventArgs e)
+        {
+            Application.Exit();
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -100,6 +120,25 @@ namespace ComputerShutDown
         void DeleteInvalidInput(TextBox txtBox) 
         {
             txtBox.Text = txtBox.Text.Remove(0, txtBox.Text.Length);
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                notifyIcon.Visible = true;
+                notifyIcon.BalloonTipText = "The application is minimized and still running.";
+                notifyIcon.ShowBalloonTip(1000);
+
+                this.Hide();
+                e.Cancel = true;
+            }
+        }
+
+        private void notifyIcon_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Normal;
+            Show();
         }
     }
 }
