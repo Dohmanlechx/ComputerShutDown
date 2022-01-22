@@ -26,14 +26,19 @@ namespace ComputerShutDown
         private void BuildMenu()
         {
             MenuItem menuItem = new MenuItem();
-            menuItem.Index = 0;
+            menuItem.Index = 1;
             menuItem.Text = "Exit";
             menuItem.Click += new EventHandler(menuItem_Click);
+
+            MenuItem menuItem1 = new MenuItem();
+            menuItem1.Index = 0;
+            menuItem1.Text = "Info";
+            menuItem1.Click += new EventHandler(ShowInformationMessage);
 
             ContextMenu contextMenu;
             contextMenu = new ContextMenu();
 
-            contextMenu.MenuItems.AddRange(new MenuItem[] { menuItem });
+            contextMenu.MenuItems.AddRange(new MenuItem[] { menuItem1, menuItem });
             notifyIcon.ContextMenu = contextMenu;
         }
 
@@ -141,6 +146,11 @@ namespace ComputerShutDown
         bool IsNotNumber(String txt)
         {
             return System.Text.RegularExpressions.Regex.IsMatch(txt, "[^0-9]");
+        }
+
+        void ShowInformationMessage(object Sender, EventArgs e)
+        {
+            MessageBox.Show("Developed by David Öhman, 2022");
         }
 
         void ShowMessageMustEnterAnyNumber()
